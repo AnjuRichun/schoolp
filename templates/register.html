@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>REGISTRATION</h1>
+{% for i in messages %}
+{{i}}
+{% endfor %}
+<form action="register" method="POST">
+    {% csrf_token %}
+<input type="text" name="username" placeholder="enter your name"><br>
+<input type="password" name="password" placeholder="enter your password"><br>
+<input type="password" name="password2" placeholder="confirm your password"><br>
+<a href="{% url 'storeapp:login' %}" class="btn btn-primary">submit</a><br>
+</form>
+{% endblock %}

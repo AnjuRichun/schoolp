@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block body %}
+<nav class="nav navbar-expand-lg navbar-dark bg-dark">
+  <label class="logo">SCHOOL STORE</label>
+
+    <ul>
+      <li class="active"><a href="{% url 'storeapp:home' %}">Home</a></li>
+      <li class="active"><a href="{% url 'storeapp:login' %}">login</a></li>
+      <li class="active"><a href="{% url 'storeapp:register' %}">register</a></li>
+
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Department <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            {% for cat in links %}
+          <li><a href="{{cat.get_url}}">{{cat.name}}</a></li>
+          {% endfor %}
+
+        </ul>
+      </li>
+
+    </ul>
+
+</nav>
+<a  class="btn btn-primary" href="{% url 'storeapp:login' %}">Go</a>
+
+{% endblock %}
